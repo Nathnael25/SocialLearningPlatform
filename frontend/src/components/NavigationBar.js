@@ -1,5 +1,3 @@
-// src/components/NavigationBar.js
-
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 
 function NavigationBar() {
