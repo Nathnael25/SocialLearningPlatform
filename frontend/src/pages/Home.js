@@ -5,235 +5,171 @@ function Home() {
     <div className="main-layout home_page">
       {/* Loader */}
       <div className="loader_bg">
-        <div className="loader">
+        <div className="loader text-center">
           <img src="images/loading.gif" alt="Loading" />
         </div>
       </div>
 
-      {/* Header */}
-      <header>
-        <div className="header">
-          <div className="container">
-            <div className="row">
-              <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
-                <div className="full">
-                  <div className="center-desk">
-                    <div className="logo">
-                      <a href="index.html">
-                        <img src="images/logo.png" alt="Logo" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-9 col-lg-9 col-md-9 col-sm-9">
-                <div className="menu-area">
-                  <div className="limit-box">
-                    <nav className="main-menu">
-                      <ul className="menu-area-main">
-                        <li className="active">
-                          <a href="index.html">Home</a>
-                        </li>
-                        <li>
-                          <a href="about.html">About us</a>
-                        </li>
-                        <li>
-                          <a href="books.html">Our Books</a>
-                        </li>
-                        <li>
-                          <a href="library.html">Library</a>
-                        </li>
-                        <li>
-                          <a href="contact.html">Contact us</a>
-                        </li>
-                        <li className="mean-last">
-                          <a href="#">
-                            <img src="images/search_icon.png" alt="Search" />
-                          </a>
-                        </li>
-                        <li className="mean-last">
-                          <a href="#">
-                            <img src="images/top-icon.png" alt="Top" />
-                          </a>
-                        </li>
-                      </ul>
-                    </nav>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* Slider Section */}
-      <section className="slider_section">
+      <section className="slider_section mb-5">
         <div
-          id="myCarousel"
-          className="carousel slide banner-main"
-          data-ride="carousel"
+          id="carouselExampleCaptions"
+          className="carousel slide"
+          data-bs-ride="carousel"
         >
           <div className="carousel-inner">
-            {["First", "Second", "Third"].map((slide, index) => (
+            {[
+              {
+                src: "images/banner.jpg",
+                title: "Welcome to Our Library",
+                description:
+                  "Explore a vast collection of books and resources.",
+              },
+              {
+                src: "images/about-bg.jpg",
+                title: "About Us",
+                description: "Learn more about our mission and vision.",
+              },
+              {
+                src: "images/Library.jpg",
+                title: "Our Library",
+                description:
+                  "Discover the best books for your reading pleasure.",
+              },
+            ].map((item, index) => (
               <div
                 key={index}
                 className={`carousel-item ${index === 0 ? "active" : ""}`}
+                style={{
+                  backgroundImage: `url(${item.src})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  height: "500px",
+                }}
               >
-                <img
-                  className={`${index + 1}-slide`}
-                  src="images/banner.jpg"
-                  alt={`${slide} slide`}
-                />
-                <div className="container">
-                  <div className="carousel-caption relative">
-                    <h1>
-                      The Best Libraries That
-                      <br /> Every Book Lover Must
-                      <br /> Visit!
-                    </h1>
-                    <p>
-                      adipiscing elit, sed do eiusmod tempor incididunt ut
-                      <br /> labore et dolore magna aliqua. Ut enim ad minim
-                      <br /> veniam, quis nostrud exercitation
-                    </p>
-                    <div className="button_section">
-                      <a className="main_bt" href="#">
-                        Read More
-                      </a>
-                    </div>
-                    <ul className="locat_icon">
-                      {["facebook", "Twitter", "linkedin", "instagram"].map(
-                        (icon, i) => (
-                          <li key={i}>
-                            <a href="#">
-                              <img src={`icon/${icon}.png`} alt={icon} />
-                            </a>
-                          </li>
-                        )
-                      )}
-                    </ul>
-                  </div>
+                <div className="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
+                  <h1 className="text-white fw-bold">{item.title}</h1>
+                  <p className="text-white">{item.description}</p>
+                  <a href="#about" className="btn btn-primary btn-lg mt-3">
+                    Learn More
+                  </a>
                 </div>
               </div>
             ))}
           </div>
-          <a
+          <button
             className="carousel-control-prev"
-            href="#myCarousel"
-            role="button"
-            data-slide="prev"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev"
           >
             <span
               className="carousel-control-prev-icon"
               aria-hidden="true"
             ></span>
-            <span className="sr-only">Previous</span>
-          </a>
-          <a
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button
             className="carousel-control-next"
-            href="#myCarousel"
-            role="button"
-            data-slide="next"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next"
           >
             <span
               className="carousel-control-next-icon"
               aria-hidden="true"
             ></span>
-            <span className="sr-only">Next</span>
-          </a>
+            <span className="visually-hidden">Next</span>
+          </button>
         </div>
       </section>
 
       {/* About Section */}
-      <div className="about">
+      <div className="about section py-5">
         <div className="container">
-          <div className="row">
-            <div className="col-md-10 offset-md-1">
-              <div className="aboutheading">
-                <h2>
-                  About <strong className="black">Us</strong>
-                </h2>
-                <span>
-                  adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                  exercitation ullamco laboris
-                </span>
-              </div>
+          <div className="row text-center mb-4">
+            <div className="col">
+              <h2>
+                About <strong className="text-primary">Us</strong>
+              </h2>
+              <p className="text-muted">
+                Discover who we are and what we do to bring knowledge closer to
+                you.
+              </p>
             </div>
           </div>
-          <div className="row border">
-            <div className="col-xl-7 col-lg-7 col-md-12 col-sm-12">
-              <div className="about-box">
-                <p>
-                  consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                  ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                  ea commodo consequat.
-                </p>
-                <a href="#">Read More</a>
-              </div>
+          <div className="row align-items-center">
+            <div className="col-md-6">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim
+                ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquip ex ea commodo consequat.
+              </p>
+              <a href="#" className="btn btn-primary">
+                Read More
+              </a>
             </div>
-            <div className="col-xl-5 col-lg-5 col-md-12 col-sm-12">
-              <div className="about-box">
-                <figure>
-                  <img src="images/about.png" alt="About Us" />
-                </figure>
-              </div>
+            <div className="col-md-6 text-center">
+              <img
+                src="images/about.png"
+                alt="About Us"
+                className="img-fluid rounded"
+              />
             </div>
           </div>
         </div>
       </div>
 
       {/* Library Section */}
-      <div className="Library">
+      <div className="Library section py-5 bg-light">
         <div className="container">
-          <div className="row">
-            <div className="col-md-10 offset-md-1">
-              <div className="titlepage">
-                <h2>
-                  Our <strong className="black">Library</strong>
-                </h2>
-                <span>
-                  adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua.
-                </span>
-              </div>
+          <div className="row text-center mb-4">
+            <div className="col">
+              <h2>
+                Our <strong className="text-primary">Library</strong>
+              </h2>
+              <p className="text-muted">
+                Explore our vast collection of books and resources.
+              </p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Footer */}
-      <footer>
-        <div className="footer">
-          <div className="container">
-            <div className="row pdn-top-30">
-              <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                <div className="Follow">
-                  <h3>Follow Us</h3>
-                </div>
-                <ul className="location_icon">
-                  {["facebook", "Twitter", "linkedin", "instagram"].map(
-                    (icon, i) => (
-                      <li key={i}>
-                        <a href="#">
-                          <img src={`icon/${icon}.png`} alt={icon} />
-                        </a>
-                      </li>
-                    )
-                  )}
-                </ul>
-              </div>
-              <div className="col-xl-8 col-lg-8 col-md-8 col-sm-12">
-                <div className="Follow">
-                  <h3>Newsletter</h3>
-                </div>
+      <footer className="footer py-4 bg-dark text-light">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-4 text-center text-md-start">
+              <h3>Follow Us</h3>
+              <ul className="list-inline">
+                {["facebook", "Twitter", "linkedin", "instagram"].map(
+                  (icon, i) => (
+                    <li className="list-inline-item" key={i}>
+                      <a href="#" className="text-light">
+                        <img
+                          src={`icon/${icon}.png`}
+                          alt={icon}
+                          className="me-2"
+                          style={{ width: "20px", height: "20px" }}
+                        />
+                        {icon}
+                      </a>
+                    </li>
+                  )
+                )}
+              </ul>
+            </div>
+            <div className="col-md-8 text-center text-md-end">
+              <h3>Newsletter</h3>
+              <div className="d-flex justify-content-center justify-content-md-end mt-3">
                 <input
-                  className="Newsletter"
+                  className="form-control me-2"
                   placeholder="Enter your email"
                   type="email"
+                  style={{ maxWidth: "300px" }}
                 />
-                <button className="Subscribe">Subscribe</button>
+                <button className="btn btn-primary">Subscribe</button>
               </div>
             </div>
           </div>
